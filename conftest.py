@@ -1,0 +1,26 @@
+from ssl import Options
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
+
+import pytest
+from selenium import webdriver
+
+@pytest.fixture()
+def browser():
+    options = Options()
+    options.add_argument('--headless')
+    browser = webdriver.Chrome(options=options)
+    browser.maximize_window()
+    browser.implicitly_wait(5)
+    yield browser
+    browser.close()
+
+@pytest.fixture()
+def browser2():
+    options = Options()
+    options.add_argument('--headless')
+    browser = webdriver.Firefox(options=options)
+    browser.maximize_window()
+    browser.implicitly_wait(5)
+    yield browser
+    browser.close()
