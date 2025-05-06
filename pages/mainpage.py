@@ -27,3 +27,31 @@ class MainPage:
     def find_dropdown_why_to_use(self):
         dropdown_how_it_works = self.browser.find_element(By.XPATH, "//div[text()='How It Works']")
         return dropdown_how_it_works
+
+    def find_button_buy_now_on_header(self):
+        button = self.browser.find_element(By.XPATH, "//a[text()='Buy Now']")
+        return button
+
+    def find_button_download_on_header(self):
+        button = self.browser.find_element(By.XPATH, "//div[@title='Download']")
+        return button
+
+    def click_button_download_on_header(self):
+        button = self.browser.find_element(By.XPATH, "//div[@title='Download']")
+        button.click()
+
+    def check_download_on_header_is_opening_dropdown(self):
+        items = [
+            self.browser.find_element(By.XPATH, "//a[text()='Download']"),
+            self.browser.find_element(By.XPATH, "//a[text()='Download for ARM']")
+        ]
+        return items
+
+    def click_on_dropdown_items_download_on_header_x64(self):
+        x64 = self.browser.find_element(By.XPATH, "//a[text()='Download']")
+        x64.click()
+
+    def click_on_dropdown_items_download_on_header_arm(self):
+        arm = self.browser.find_element(By.XPATH, "//a[text()='Download']")
+        arm.click()
+
