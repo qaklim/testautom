@@ -1,7 +1,5 @@
-from ssl import Options
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-
 import pytest
 from selenium import webdriver
 
@@ -13,7 +11,7 @@ def browser():
     browser.maximize_window()
     browser.implicitly_wait(5)
     yield browser
-    browser.close()
+    browser.quit()
 
 @pytest.fixture()
 def browser2():
@@ -23,4 +21,4 @@ def browser2():
     browser.maximize_window()
     browser.implicitly_wait(5)
     yield browser
-    browser.close()
+    browser.quit()
